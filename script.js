@@ -1,4 +1,6 @@
 // Assignment code here
+
+// object to hold arrays for user selection
 var characters = {
   lowCase: [
     "a",
@@ -65,12 +67,14 @@ var characters = {
   ],
 };
 
+// gather user input for password generation
 function generatePassword() {
   var lowYes = confirm("Would you like to include lower case letters?");
   var upYes = confirm("Would you like to include capital letters?");
   var numYes = confirm("Would you like to include numbers?");
   var charYes = confirm("Would you like to include special characters?");
 
+  // validate user input to check for atleast one selection
   while (true) {
     if (!lowYes && !upYes && !numYes && !charYes) {
       alert("Please choose atleast one parameter");
@@ -93,6 +97,7 @@ function generatePassword() {
     "How long is your password? Please choose a value between 8 and 128"
   );
 
+  // verify supported length is selected
   var password = "";
   while (true) {
     if (amount < 8 || amount > 128) {
@@ -105,6 +110,7 @@ function generatePassword() {
     }
   }
 
+  // for loop to iterate through user selections
   for (var i = 0; i < amount; i++) {
     var exists = false;
     var selection = "";
